@@ -5,7 +5,7 @@ export type Project = {
   technologies?: string[];
   image?: string;
   link?: string;
-  status?: 'completed' | 'in_progress' | 'planned';
+  status?: string;
 };
 
 export const Project = {
