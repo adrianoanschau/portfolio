@@ -1,0 +1,27 @@
+{
+  "name": "Service",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Nome do serviço"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrição do serviço"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Nome do ícone"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Serviço em destaque"
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}

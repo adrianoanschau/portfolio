@@ -1,0 +1,36 @@
+{
+  "name": "Testimonial",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do cliente"
+    },
+    "role": {
+      "type": "string",
+      "description": "Cargo do cliente"
+    },
+    "company": {
+      "type": "string",
+      "description": "Empresa do cliente"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Comentário do cliente"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "default": 5
+    },
+    "avatar": {
+      "type": "string",
+      "description": "URL do avatar"
+    }
+  },
+  "required": [
+    "name",
+    "comment"
+  ]
+}

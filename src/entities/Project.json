@@ -1,0 +1,42 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Nome do projeto"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descrição do projeto"
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tecnologias utilizadas"
+    },
+    "image": {
+      "type": "string",
+      "description": "URL da imagem do projeto"
+    },
+    "link": {
+      "type": "string",
+      "description": "Link do projeto"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "in_progress",
+        "planned"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}
