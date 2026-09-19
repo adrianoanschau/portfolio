@@ -63,7 +63,7 @@ export default function ContactSection() {
   const contactInfo = [
     { icon: 'lucide:mail', title: 'Email', content: 'adrianoanschau@gmail.com' },
     { icon: 'lucide:phone', title: 'Telefone', content: '+55 (51) 99 579 5971' },
-    { icon: 'lucide:map-pin', title: 'Localização', content: 'Canoas, RS - Brasil' },
+    { icon: 'lucide:map-pin', title: 'Localização', content: 'Porto Alegre, RS · remoto' },
   ];
 
   return (
@@ -79,7 +79,7 @@ export default function ContactSection() {
             Entre em Contato
           </Typography>
           <Typography variant="h6" align="center" color="#005662" sx={{ mb: 6 }}>
-            Vamos conversar sobre seu próximo projeto
+            Aberto a vagas Pleno/Sênior — Porto Alegre ou remoto
           </Typography>
         </motion.div>
 

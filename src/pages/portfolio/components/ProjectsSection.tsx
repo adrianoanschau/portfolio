@@ -15,6 +15,7 @@ import {
   IconButton
 } from '@mui/material';
 import { Project } from '@/entities/Project';
+import { publicUrl } from '@/utils/publicUrl';
 
 export default function ProjectsSection() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -26,11 +27,7 @@ export default function ProjectsSection() {
     })();
   }, []);
 
-  const getProjectImage = (index: number) => {
-    const colors = ['#6C63FF', '#FF6B00', '#4A90E2', '#FF3366'];
-    const color = colors[index % colors.length].substring(1);
-    return `https://via.placeholder.com/400x250/${color}/FFFFFF?text=Project+Image`;
-  };
+  const fallbackColors = ['#6C63FF', '#007FAD', '#1f8a70', '#FF8552', '#1e3a5f'];
 
   return (
     <Box component="section" id="projects" sx={{ py: { xs: 8, md: 12 } }}>
@@ -45,7 +42,7 @@ export default function ProjectsSection() {
             Projetos em Destaque
           </Typography>
           <Typography variant="h6" align="center" color="#6C63FF" sx={{ mb: 6 }}>
-            Soluções digitais aplicadas com tecnologia de ponta
+            Casos reais — Dasa, Vetta, RD Station e Deliver IT
           </Typography>
         </motion.div>
 
@@ -70,18 +67,38 @@ export default function ProjectsSection() {
                     },
                   }}
                 >
-                  <Box
-                    component="img"
-                    src={project.image || getProjectImage(index)}
-                    alt={project.title}
-                    sx={{
-                      height: 200,
-                      width: '100%',
-                      objectFit: 'cover',
-                      borderTopLeftRadius: 4,
-                      borderTopRightRadius: 4,
-                    }}
-                  />
+                  {project.image ? (
+                    <Box
+                      component="img"
+                      src={publicUrl(project.image)}
+                      alt={project.title}
+                      sx={{
+                        height: 200,
+                        width: '100%',
+                        objectFit: 'cover',
+                        borderTopLeftRadius: 4,
+                        borderTopRightRadius: 4,
+                      }}
+                    />
+                  ) : (
+                    <Box
+                      sx={{
+                        height: 200,
+                        width: '100%',
+                        backgroundColor: fallbackColors[index % fallbackColors.length],
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        px: 2,
+                        borderTopLeftRadius: 4,
+                        borderTopRightRadius: 4,
+                      }}
+                    >
+                      <Typography variant="subtitle1" align="center" color="#fff" fontWeight={600}>
+                        {project.title}
+                      </Typography>
+                    </Box>
+                  )}
 
                   <CardHeader
                     title={

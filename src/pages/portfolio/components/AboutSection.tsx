@@ -14,41 +14,41 @@ import {
 
 export default function AboutSection() {
   const technologies = [
-    'React', 'TypeScript', 'Node.js', 'NestJS', 'GraphQL',
-    'PostgreSQL', 'Docker', 'Material UI', 'Tailwind CSS',
-    'MongoDB', 'Redis'
+    'TypeScript', 'Node.js', 'NestJS', 'React', 'GraphQL',
+    'APIs', 'PostgreSQL', 'Docker', 'Testes', 'Git',
+    'PHP', 'Vue'
   ];
 
   const features = [
     {
-      icon: <Icon icon="lucide:layers" />,
-      title: 'Arquitetura de Sistemas',
-      description: 'Experiência na modelagem de arquiteturas escaláveis, limpas e orientadas a domínio.'
-    },
-    {
-      icon: <Icon icon="lucide:code-2" />,
-      title: 'Código de Alta Qualidade',
-      description: 'Foco em padrões limpos, testes automatizados e manutenibilidade de longo prazo.'
-    },
-    {
-      icon: <Icon icon="lucide:workflow" />,
-      title: 'Automações e Integrações',
-      description: 'Criação de soluções que economizam tempo e reduzem erros em processos empresariais.'
+      icon: <Icon icon="lucide:network" />,
+      title: 'Microsserviços e GraphQL',
+      description: 'APIs em Node.js/NestJS e introdução de GraphQL no time, em plataforma de saúde e diagnóstico.'
     },
     {
       icon: <Icon icon="lucide:shield-check" />,
-      title: 'Segurança e Autenticação',
-      description: 'Implementação de autenticação robusta e políticas de segurança para sistemas sensíveis.'
+      title: 'Autenticação e segurança',
+      description: 'Serviço centralizado de auth com Strategy Pattern, JWT e fluxos OAuth em ambiente sensível.'
+    },
+    {
+      icon: <Icon icon="lucide:activity" />,
+      title: 'Observabilidade e logging',
+      description: 'Rastreabilidade que reduziu a análise de incidentes de API de dias para horas — muitas vezes minutos.'
     },
     {
       icon: <Icon icon="lucide:users" />,
-      title: 'Colaboração em Equipe',
-      description: 'Experiência em projetos ágeis com integração contínua e foco em produtividade.'
+      title: 'Liderança técnica',
+      description: 'Tech Lead de um time de 8 pessoas em dashboard complexo do setor metalúrgico.'
     },
     {
-      icon: <Icon icon="lucide:monitor-smartphone" />,
-      title: 'Experiência do Usuário',
-      description: 'Interfaces responsivas, acessíveis e otimizadas garantindo fluidez e usabilidade em qualquer dispositivo.'
+      icon: <Icon icon="lucide:flask-conical" />,
+      title: 'Experimentos de growth',
+      description: 'Testes A/B em React com Product e Design, fechando o ciclo do experimento ao resultado.'
+    },
+    {
+      icon: <Icon icon="lucide:code-2" />,
+      title: 'Qualidade de código',
+      description: 'TypeScript, testes e práticas que sustentam entrega em produção e o trabalho em equipe.'
     }
   ];
 
@@ -65,7 +65,7 @@ export default function AboutSection() {
             Sobre Mim
           </Typography>
           <Typography variant="h6" align="center" color="#007FAD" mb={6}>
-            Desenvolvedor apaixonado por criar soluções inovadoras
+            Fullstack Pleno/Sênior · Node.js, NestJS, React e TypeScript
           </Typography>
         </motion.div>
 
@@ -78,13 +78,16 @@ export default function AboutSection() {
               viewport={{ once: true }}
             >
               <Typography variant="body1" color="#475569" mb={2} sx={{ fontSize: '1.125rem' }}>
-                Com mais de 8 anos de experiência em desenvolvimento de software, atuo como desenvolvedor full stack com foco em aplicações web modernas. Tenho expertise em tecnologias como PHP, Node.js e React, criando soluções robustas e escaláveis para sistemas corporativos, dashboards, landing pages e automações.
+                Atuo como desenvolvedor fullstack (Pleno/Sênior) em Porto Alegre e remoto. Meu foco é entrega em produção: microsserviços, APIs e produto em times de engenharia.
               </Typography>
               <Typography variant="body1" color="#475569" mb={2} sx={{ fontSize: '1.125rem' }}>
-                Sou comprometido com a qualidade do código e acredito que boas práticas como TDD, BDD e CI/CD são essenciais para garantir a manutenibilidade e facilitar o trabalho em equipe. Participo de todas as etapas do desenvolvimento — da arquitetura aos testes — sempre buscando entregar valor real com organização, clareza e excelência técnica.
+                O ciclo mais forte foi na Dasa, via FCamara: microsserviços em Node.js, NestJS e GraphQL. Introduzi GraphQL no time e implementei logging e rastreabilidade que reduziram a análise de incidentes de API de dias para horas — frequentemente minutos. Também centralizei a autenticação com Strategy Pattern.
+              </Typography>
+              <Typography variant="body1" color="#475569" mb={2} sx={{ fontSize: '1.125rem' }}>
+                Na RD Station fui Growth Software Engineer: React e testes A/B com Product e Design, fechando o ciclo até o resultado. Na Vetta liderei um time de 8 pessoas em um dashboard complexo do setor metalúrgico (React, com Node).
               </Typography>
               <Typography variant="body1" color="#475569" mb={4} sx={{ fontSize: '1.125rem' }}>
-                Já atuei em projetos de grande impacto, como a criação de um webapp de e-mail corporativo, um sistema de estoque altamente eficiente, uma plataforma de teleconsulta com prontuário digital e a reformulação completa do sistema de autenticação de uma grande rede hospitalar.
+                Na Deliver IT fiz manutenção WordPress, um produto universitário (microsserviços PHP + Vue) e um projeto fintech em PHP — experiência real, sem inflar o escopo. No Senac coordeno e leciono TI como complemento; o alvo da carreira é engenharia fullstack.
               </Typography>
 
               <Typography variant="h6" fontWeight={600} color="#1e293b" gutterBottom>

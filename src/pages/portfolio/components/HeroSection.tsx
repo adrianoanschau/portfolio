@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { Avatar, Box, Button, Container, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import SocialButtons from "@/components/SocialButtons";
+import { publicUrl } from "@/utils/publicUrl";
 
 export default function HeroSection() {
   const scrollToProjects = () => {
@@ -60,11 +61,14 @@ export default function HeroSection() {
               <Typography variant="h2" sx={{ fontWeight: 'bold', color: "#fff", mb: 1 }}>
                 Adriano Anschau
               </Typography>
-              <Typography variant="h4" sx={{ color: "rgba(255,255,255,0.9)", mb: 2 }}>
-                Desenvolvedor Full Stack
+              <Typography variant="h4" sx={{ color: "rgba(255,255,255,0.9)", mb: 1 }}>
+                Desenvolvedor Fullstack
+              </Typography>
+              <Typography variant="subtitle1" sx={{ color: "rgba(255,255,255,0.85)", letterSpacing: 0.4, mb: 2 }}>
+                Node.js · React · TypeScript
               </Typography>
               <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.8)", fontSize: '1.125rem', maxWidth: 600, mb: 4 }}>
-                Construindo soluções digitais com qualidade e inovação. Transformo ideias em produtos tecnológicos que geram valor real.
+                Entrego microsserviços e produto em produção — GraphQL, autenticação e observabilidade em times de engenharia. Pleno/Sênior · Porto Alegre ou remoto.
               </Typography>
 
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 4 }}>
@@ -98,7 +102,7 @@ export default function HeroSection() {
               style={{ display: 'flex', justifyContent: 'center' }}
             >
               <Avatar
-                src="/images/me.jpeg"
+                src={publicUrl('/images/me.jpeg')}
                 alt="Adriano Anschau"
                 sx={{
                   width: { xs: 192, md: 288 },

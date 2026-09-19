@@ -32,10 +32,10 @@ export default function ServicesSection() {
           viewport={{ once: true }}
         >
           <Typography variant="h4" align="center" fontWeight="bold" color="#1e293b" gutterBottom>
-            Serviços
+            O que eu entrego
           </Typography>
           <Typography variant="h6" align="center" color="#FF8552" sx={{ mb: 6 }}>
-            Soluções completas para suas necessidades digitais
+            Capacidades para um time de produto
           </Typography>
         </motion.div>
 

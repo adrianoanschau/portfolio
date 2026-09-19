@@ -1,8 +1,8 @@
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import ExperienceSection from './components/ExperienceSection';
 import ProjectsSection from './components/ProjectsSection';
 import ServicesSection from './components/ServicesSection';
-import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
@@ -12,9 +12,9 @@ export default function Portfolio() {
       <HeroSection />
       <main>
         <AboutSection />
+        <ExperienceSection />
         <ProjectsSection />
         <ServicesSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
