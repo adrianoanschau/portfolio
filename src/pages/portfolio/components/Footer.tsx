@@ -15,9 +15,9 @@ export default function Footer() {
 
   const navLinks = [
     { name: 'Sobre', href: '#about' },
+    { name: 'Experiência', href: '#experience' },
     { name: 'Projetos', href: '#projects' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Depoimentos', href: '#testimonials' },
+    { name: 'O que eu entrego', href: '#services' },
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -40,7 +40,7 @@ export default function Footer() {
             </Typography>
 
             <Typography variant="body2" color="#cbd5e1" sx={{ mb: 2 }}>
-              Desenvolvedor Full Stack apaixonado por criar soluções digitais inovadoras que transformam ideias em realidade.
+              Desenvolvedor Fullstack (Node.js · React · TypeScript). Pleno/Sênior · Porto Alegre ou remoto.
             </Typography>
 
             <Box sx={{ display: 'flex', gap: 1 }}>

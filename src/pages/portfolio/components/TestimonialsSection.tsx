@@ -24,6 +24,10 @@ export default function TestimonialsSection() {
   const getAvatarFallback = (name: string) =>
     name?.split(' ').map(n => n[0]).join('') || 'U';
 
+  if (testimonials.length === 0) {
+    return null;
+  }
+
   return (
     <Box component="section" id="testimonials" sx={{ backgroundColor: '#fff', py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
