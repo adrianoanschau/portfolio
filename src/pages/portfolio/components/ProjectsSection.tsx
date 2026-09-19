@@ -89,14 +89,11 @@ export default function ProjectsSection() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        px: 2,
                         borderTopLeftRadius: 4,
                         borderTopRightRadius: 4,
                       }}
                     >
-                      <Typography variant="subtitle1" align="center" color="#fff" fontWeight={600}>
-                        {project.title}
-                      </Typography>
+                      <Icon icon="lucide:layers" width={48} height={48} color="#fff" />
                     </Box>
                   )}
 
