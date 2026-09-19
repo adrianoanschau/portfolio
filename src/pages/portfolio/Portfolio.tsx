@@ -1,10 +1,11 @@
-import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import ContactSection from './components/ContactSection';
 import ExperienceSection from './components/ExperienceSection';
+import Footer from './components/Footer';
+import HeroSection from './components/HeroSection';
 import ProjectsSection from './components/ProjectsSection';
 import ServicesSection from './components/ServicesSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
+import TestimonialsSection from './components/TestimonialsSection';
 
 export default function Portfolio() {
   return (
@@ -15,6 +16,7 @@ export default function Portfolio() {
         <ExperienceSection />
         <ProjectsSection />
         <ServicesSection />
+        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />

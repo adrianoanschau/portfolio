@@ -1,198 +1,188 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Button,
-  TextField,
-  Snackbar,
   Alert,
+  Box,
+  Button,
+  Container,
+  Link,
+  Snackbar,
+  Stack,
+  TextField,
+  Typography,
 } from '@mui/material';
-import { CHAT_ID, FORMSPREE_ENDPOINT, TELEGRAM_TOKEN } from "@/global";
+import { motion } from 'framer-motion';
+import { useState, type FormEvent } from 'react';
+
+import SectionHeading from '@/components/SectionHeading';
+import { CHAT_ID, FORMSPREE_ENDPOINT, TELEGRAM_TOKEN } from '@/global';
+import { fadeInView } from '@/theme/motion';
+
+const contactInfo = [
+  {
+    label: 'Email',
+    value: 'adrianoanschau@gmail.com',
+    href: 'mailto:adrianoanschau@gmail.com',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/adrianoanschau',
+    href: 'https://linkedin.com/in/adrianoanschau',
+  },
+  {
+    label: 'Telefone',
+    value: '+55 (51) 99 579 5971',
+    href: 'tel:+5551995795971',
+  },
+  {
+    label: 'Localização',
+    value: 'Porto Alegre, RS · remoto',
+  },
+];
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [open, setOpen] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const sendMessage = async (formData: { name: string; email: string; message: string }) => {
+  const sendMessage = async (payload: typeof formData) => {
     if (TELEGRAM_TOKEN && CHAT_ID) {
       const text =
         `Novo contato do site:\n` +
-        `👤 Nome: ${formData.name}\n` +
-        `📧 Email: ${formData.email}\n` +
-        `💬 Mensagem: ${formData.message}`;
+        `Nome: ${payload.name}\n` +
+        `Email: ${payload.email}\n` +
+        `Mensagem: ${payload.message}`;
 
-      await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
-        {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text,
-            parse_mode: "Markdown"
-          })
-        }
-      );
+      await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text,
+        }),
+      });
     }
 
     if (FORMSPREE_ENDPOINT) {
       await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { 'Accept': 'application/json' },
-        body: JSON.stringify(formData),
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: JSON.stringify(payload),
       });
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await sendMessage(formData);
     setOpen(true);
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const contactInfo = [
-    { icon: 'lucide:mail', title: 'Email', content: 'adrianoanschau@gmail.com' },
-    { icon: 'lucide:phone', title: 'Telefone', content: '+55 (51) 99 579 5971' },
-    { icon: 'lucide:map-pin', title: 'Localização', content: 'Porto Alegre, RS · remoto' },
-  ];
-
   return (
-    <Box component="section" id="contact" sx={{ backgroundColor: '#f8fafc', py: { xs: 8, md: 12 } }}>
+    <Box
+      component="section"
+      id="contact"
+      sx={{
+        bgcolor: 'background.paper',
+        py: { xs: 8, md: 10 },
+        borderTop: 1,
+        borderColor: 'divider',
+      }}
+    >
       <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Typography variant="h4" align="center" fontWeight="bold" color="#1e293b" gutterBottom>
-            Entre em Contato
-          </Typography>
-          <Typography variant="h6" align="center" color="#005662" sx={{ mb: 6 }}>
-            Aberto a vagas Pleno/Sênior — Porto Alegre ou remoto
-          </Typography>
-        </motion.div>
+        <Box component={motion.div} {...fadeInView}>
+          <SectionHeading
+            title="Contato"
+            subtitle="Aberto a vagas Pleno/Sênior — Porto Alegre ou remoto"
+          />
 
-        <Grid container spacing={4}>
-          <Grid size={{ xs: 12, lg: 8 }}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Card sx={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', p: { xs: 2, sm: 4 } }}>
-                <form onSubmit={handleSubmit}>
-                  <Grid container spacing={3}>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField
-                        fullWidth
-                        required
-                        name="name"
-                        label="Nome"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField
-                        fullWidth
-                        required
-                        name="email"
-                        type="email"
-                        label="Email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField
-                        name="message"
-                        label="Sua mensagem"
-                        multiline
-                        required
-                        minRows={6}
-                        fullWidth
-                        value={formData.message}
-                        onChange={handleInputChange}
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        endIcon={<Icon icon="lucide:send" />}
-                        sx={{
-                          backgroundColor: '#005662',
-                          '&:hover': { backgroundColor: '#5A00E6' },
-                          textTransform: 'none',
-                        }}
-                      >
-                        Enviar Mensagem
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </form>
-              </Card>
-            </motion.div>
-          </Grid>
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 1.2fr' },
+              gap: { xs: 4, md: 8 },
+              alignItems: 'start',
+            }}
+          >
+            <Stack spacing={2.25}>
+              {contactInfo.map(info => (
+                <Box key={info.label}>
+                  <Typography variant="caption" color="text.secondary" sx={{ display: 'block' }}>
+                    {info.label}
+                  </Typography>
+                  {info.href ? (
+                    <Link
+                      href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : undefined}
+                      rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      underline="hover"
+                      color="text.primary"
+                      variant="body2"
+                    >
+                      {info.value}
+                    </Link>
+                  ) : (
+                    <Typography variant="body2">{info.value}</Typography>
+                  )}
+                </Box>
+              ))}
+            </Stack>
 
-          <Grid size={{ xs: 12, lg: 4 }}>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              sx={{
+                display: 'grid',
+                gap: 2,
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+              }}
             >
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                {contactInfo.map((info) => (
-                  <Card key={info.title} sx={{ backgroundColor: '#fff', border: '1px solid #e2e8f0' }}>
-                    <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Box
-                        sx={{
-                          backgroundColor: '#005662',
-                          color: '#fff',
-                          width: 48,
-                          height: 48,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          borderRadius: 2,
-                        }}
-                      >
-                        <Icon icon={info.icon} width={24} height={24} />
-                      </Box>
-                      <Box>
-                        <Typography variant="subtitle1" fontWeight={600} color="#1e293b">
-                          {info.title}
-                        </Typography>
-                        <Typography variant="body2" color="#64748b">
-                          {info.content}
-                        </Typography>
-                      </Box>
-                    </CardContent>
-                  </Card>
-                ))}
+              <TextField
+                required
+                name="name"
+                label="Nome"
+                value={formData.name}
+                onChange={e => setFormData({ ...formData, name: e.target.value })}
+              />
+              <TextField
+                required
+                name="email"
+                type="email"
+                label="Email"
+                value={formData.email}
+                onChange={e => setFormData({ ...formData, email: e.target.value })}
+              />
+              <TextField
+                name="message"
+                label="Mensagem"
+                multiline
+                required
+                minRows={5}
+                fullWidth
+                value={formData.message}
+                onChange={e => setFormData({ ...formData, message: e.target.value })}
+                sx={{ gridColumn: '1 / -1' }}
+              />
+              <Box sx={{ gridColumn: '1 / -1' }}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  endIcon={<Icon icon="lucide:send" width={16} height={16} />}
+                >
+                  Enviar mensagem
+                </Button>
               </Box>
-            </motion.div>
-          </Grid>
-        </Grid>
+            </Box>
+          </Box>
+        </Box>
 
-        {/* Toast */}
-        <Snackbar open={open} autoHideDuration={4000} onClose={() => setOpen(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          onClose={() => setOpen(false)}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
           <Alert onClose={() => setOpen(false)} severity="success" sx={{ width: '100%' }}>
-            Mensagem enviada! Obrigado por entrar em contato. Retornarei em breve.
+            Mensagem enviada. Obrigado pelo contato — retorno em breve.
           </Alert>
         </Snackbar>
       </Container>

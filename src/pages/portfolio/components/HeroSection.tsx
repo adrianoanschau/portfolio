@@ -1,128 +1,108 @@
-import { Icon } from "@iconify/react";
-import { Avatar, Box, Button, Container, Grid, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-import SocialButtons from "@/components/SocialButtons";
-import { publicUrl } from "@/utils/publicUrl";
+import { Icon } from '@iconify/react';
+import { Box, Button, Container, Stack, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+
+import SocialButtons from '@/components/SocialButtons';
+import { fadeIn } from '@/theme/motion';
+import { publicUrl } from '@/utils/publicUrl';
 
 export default function HeroSection() {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <Box
-      component={motion.div}
-      initial={{ background: 'linear-gradient(135deg, #00FFB2, #00D9FF, #0066FF)' }}
-      animate={{
-        background: [
-          'linear-gradient(135deg, #1bfff0, #41c9e2, #2a70e0)',
-          'linear-gradient(135deg, #1e3a5f, #1f8a70, #6edcd9)',
-          'linear-gradient(135deg, #223843, #6eafff, #96e6a1)',
-          'linear-gradient(135deg, #1bfff0, #41c9e2, #2a70e0)', // loop
-        ],
-      }}
-      transition={{
-        duration: 15,
-        ease: 'easeInOut',
-        repeat: Infinity,
-      }}
+      component="section"
       sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        backgroundSize: '400% 400%',
+        borderBottom: 1,
+        borderColor: 'divider',
+        bgcolor: 'background.default',
       }}
     >
-      {/* Background SVG pattern */}
-      <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          opacity: 0.1,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.8'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '20px 20px',
-          color: 'white',
-          py: 12,
-        }}
-      />
+      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
+        <Box
+          component={motion.div}
+          {...fadeIn}
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: 'auto 1fr' },
+            gap: { xs: 4, md: 6 },
+            alignItems: 'center',
+          }}
+        >
+          <Box
+            component="img"
+            src={publicUrl('/images/me.jpeg')}
+            alt="Adriano Anschau"
+            sx={{
+              width: { xs: 128, md: 176 },
+              height: { xs: 128, md: 176 },
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              borderRadius: 1,
+              border: 1,
+              borderColor: 'divider',
+              justifySelf: { xs: 'start', md: 'auto' },
+            }}
+          />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        <Grid container spacing={4} alignItems="center">
-          <Grid size={{ xs: 12, md: 7 }}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+          <Box>
+            <Typography
+              variant="overline"
+              sx={{
+                color: 'primary.main',
+                letterSpacing: '0.08em',
+                fontWeight: 500,
+                display: 'block',
+                mb: 1,
+              }}
             >
-              <Typography variant="h2" sx={{ fontWeight: 'bold', color: "#fff", mb: 1 }}>
-                Adriano Anschau
-              </Typography>
-              <Typography variant="h4" sx={{ color: "rgba(255,255,255,0.9)", mb: 1 }}>
-                Desenvolvedor Fullstack
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: "rgba(255,255,255,0.85)", letterSpacing: 0.4, mb: 2 }}>
-                Node.js · React · TypeScript
-              </Typography>
-              <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.8)", fontSize: '1.125rem', maxWidth: 600, mb: 4 }}>
-                Entrego microsserviços e produto em produção — GraphQL, autenticação e observabilidade em times de engenharia. Pleno/Sênior · Porto Alegre ou remoto.
-              </Typography>
+              Node.js · React · TypeScript
+            </Typography>
+            <Typography variant="h1" sx={{ mb: 1 }}>
+              Adriano Anschau
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 2 }}>
+              Desenvolvedor Fullstack · Pleno/Sênior
+            </Typography>
+            <Typography color="text.secondary" sx={{ maxWidth: 560, mb: 3.5 }}>
+              Entrego microsserviços e produto em produção — GraphQL, autenticação e
+              observabilidade em times de engenharia. Porto Alegre ou remoto.
+            </Typography>
 
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 4 }}>
-                <Button
-                  variant="contained"
-                  sx={{ backgroundColor: "#fff", color: "#6A00FF", '&:hover': { backgroundColor: "rgba(255,255,255,0.9)" } }}
-                  onClick={scrollToProjects}
-                  endIcon={<Icon icon="lucide:arrow-down" />}
-                >
-                  Ver Projetos
-                </Button>
-
-                <Button
-                  variant="outlined"
-                  sx={{ color: "#fff", borderColor: "#fff", '&:hover': { borderColor: "#ddd" } }}
-                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  Entre em Contato
-                </Button>
-              </Box>
-
-              <SocialButtons />
-            </motion.div>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 5 }}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <Avatar
-                src={publicUrl('/images/me.jpeg')}
-                alt="Adriano Anschau"
-                sx={{
-                  width: { xs: 192, md: 288 },
-                  height: { xs: 192, md: 288 },
-                  fontSize: '3rem',
-                  border: '4px solid rgba(255,255,255,0.3)',
-                  boxShadow: 10,
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                    borderColor: '#ffffff',
-                    boxShadow: '0 12px 32px rgba(106, 0, 255, 0.25)',
-                  },
-                }}
+            <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ mb: 2.5 }}>
+              <Button
+                variant="contained"
+                onClick={() => scrollTo('projects')}
+                endIcon={<Icon icon="lucide:arrow-down" width={16} height={16} />}
               >
-                AA
-              </Avatar>
-            </motion.div>
-          </Grid>
-        </Grid>
+                Ver projetos
+              </Button>
+              <Button
+                variant="outlined"
+                color="inherit"
+                href="https://linkedin.com/in/adrianoanschau"
+                target="_blank"
+                rel="noopener noreferrer"
+                startIcon={<Icon icon="lucide:linkedin" width={16} height={16} />}
+                sx={{ borderColor: 'divider', color: 'text.primary' }}
+              >
+                LinkedIn
+              </Button>
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => scrollTo('contact')}
+                sx={{ color: 'text.secondary' }}
+              >
+                Contato
+              </Button>
+            </Stack>
+
+            <SocialButtons />
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

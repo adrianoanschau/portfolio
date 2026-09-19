@@ -1,175 +1,129 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Icon } from "@iconify/react";
+import { Icon } from '@iconify/react';
 import {
   Box,
-  Container,
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  CardHeader,
-  CardActions,
-  Button,
   Chip,
-  IconButton
+  Container,
+  Link,
+  Typography,
 } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+import SectionHeading from '@/components/SectionHeading';
 import { Project } from '@/entities/Project';
+import { fadeInView } from '@/theme/motion';
 import { publicUrl } from '@/utils/publicUrl';
 
 export default function ProjectsSection() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    (async () => {
-      const loadProjects = async () => setProjects(await Project.list());
-      await loadProjects();
-    })();
+    Project.list().then(setProjects);
   }, []);
 
-  const fallbackColors = ['#6C63FF', '#007FAD', '#1f8a70', '#FF8552', '#1e3a5f'];
-
   return (
-    <Box component="section" id="projects" sx={{ py: { xs: 8, md: 12 } }}>
+    <Box
+      component="section"
+      id="projects"
+      sx={{
+        bgcolor: 'background.paper',
+        py: { xs: 8, md: 10 },
+        borderTop: 1,
+        borderColor: 'divider',
+      }}
+    >
       <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Typography variant="h4" align="center" fontWeight="bold" color="#1e293b" gutterBottom>
-            Projetos em Destaque
-          </Typography>
-          <Typography variant="h6" align="center" color="#6C63FF" sx={{ mb: 6 }}>
-            Casos reais — Dasa, Vetta, RD Station e Deliver IT
-          </Typography>
-        </motion.div>
+        <Box component={motion.div} {...fadeInView}>
+          <SectionHeading
+            title="Projetos"
+            subtitle="Casos reais — Dasa, Vetta, RD Station e Deliver IT"
+          />
 
-        <Grid container spacing={4}>
-          {projects.map((project, index) => (
-            <Grid key={project.id} size={{ xs: 12, md: 6, lg: 4 }}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+              gap: 2,
+            }}
+          >
+            {projects.map(project => (
+              <Box
+                key={project.id}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  border: 1,
+                  borderColor: 'divider',
+                  borderRadius: 1,
+                  overflow: 'hidden',
+                  bgcolor: 'background.default',
+                }}
               >
-                <Card
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 32px rgba(0, 191, 166, 0.15)',
-                    },
-                  }}
-                >
-                  {project.image ? (
-                    <Box
-                      component="img"
-                      src={publicUrl(project.image)}
-                      alt={project.title}
-                      sx={{
-                        height: 200,
-                        width: '100%',
-                        objectFit: 'cover',
-                        borderTopLeftRadius: 4,
-                        borderTopRightRadius: 4,
-                      }}
-                    />
-                  ) : (
-                    <Box
-                      sx={{
-                        height: 200,
-                        width: '100%',
-                        backgroundColor: fallbackColors[index % fallbackColors.length],
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        px: 2,
-                        borderTopLeftRadius: 4,
-                        borderTopRightRadius: 4,
-                      }}
-                    >
-                      <Typography variant="subtitle1" align="center" color="#fff" fontWeight={600}>
-                        {project.title}
-                      </Typography>
-                    </Box>
-                  )}
-
-                  <CardHeader
-                    title={
-                      <Typography variant="h6" fontWeight={600} color="#1e293b">
-                        {project.title}
-                      </Typography>
-                    }
-                    sx={{ pb: 0 }}
+                {project.image && (
+                  <Box
+                    component="img"
+                    src={publicUrl(project.image)}
+                    alt=""
+                    sx={{
+                      height: 140,
+                      width: '100%',
+                      objectFit: 'cover',
+                      borderBottom: 1,
+                      borderColor: 'divider',
+                    }}
                   />
+                )}
 
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="body2" color="#475569" sx={{ mb: 2 }}>
-                      {project.description}
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {project.technologies?.map((tech: any) => (
-                        <Chip
-                          key={tech}
-                          label={tech}
-                          variant="outlined"
-                          size="small"
-                          sx={{
-                            backgroundColor: '#f1f5f9',
-                            borderColor: '#e2e8f0',
-                            color: '#6C63FF',
-                            fontWeight: 500,
-                          }}
-                        />
-                      ))}
-                    </Box>
-                  </CardContent>
-
-                  <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 2, display: 'none' }}>
-                    <Button
-                      href={project.link || '#'}
+                <Box sx={{ p: 2.5, display: 'flex', flexDirection: 'column', flex: 1, gap: 1.5 }}>
+                  <Typography variant="h6" component="h3">
+                    {project.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    {project.description}
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 'auto' }}>
+                    {project.technologies?.map(tech => (
+                      <Chip
+                        key={tech}
+                        label={tech}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                          borderColor: 'divider',
+                          color: 'text.secondary',
+                          bgcolor: 'transparent',
+                        }}
+                      />
+                    ))}
+                  </Box>
+                  {project.link && (
+                    <Link
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      variant="contained"
-                      sx={{
-                        backgroundColor: '#6C63FF',
-                        '&:hover': { backgroundColor: '#00997A' },
-                        textTransform: 'none',
-                      }}
-                      endIcon={<Icon icon="lucide:arrow-right" />}
+                      underline="hover"
+                      color="primary"
+                      variant="body2"
+                      sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, mt: 0.5 }}
                     >
-                      Ver Projeto
-                    </Button>
-                    <Box>
-                      <IconButton
-                        component="a"
-                        href={`https://github.com/adriano/${project.title?.toLowerCase()}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Icon icon="lucide:github" style={{ color: '#64748b' }} />
-                      </IconButton>
-                      <IconButton
-                        component="a"
-                        href={project.link || '#'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Icon icon="lucide:external-link" style={{ color: '#64748b' }} />
-                      </IconButton>
-                    </Box>
-                  </CardActions>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+                      Ver projeto
+                      <Icon icon="lucide:arrow-up-right" width={14} height={14} />
+                    </Link>
+                  )}
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

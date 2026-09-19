@@ -1,7 +1,7 @@
 [
   {
     "title": "Auth e observabilidade — saúde e diagnóstico (Dasa)",
-    "description": "Na Dasa, via FCamara, atuei em microsserviços Node.js/NestJS/GraphQL para plataforma de saúde e diagnóstico. Introduzi GraphQL no time, implementei logging e rastreabilidade que reduziram a análise de incidentes de API de dias para horas — frequentemente minutos — e centralizei autenticação (JWT/OAuth) com Strategy Pattern.",
+    "description": "Microsserviços Node.js/NestJS/GraphQL em plataforma de saúde (Dasa via FCamara): GraphQL no time, logging que reduziu análise de incidentes de dias para horas, e auth JWT/OAuth com Strategy Pattern.",
     "technologies": ["NestJS", "Node.js", "GraphQL", "TypeScript", "JWT", "OAuth", "Strategy Pattern"],
     "image": "/images/projects/sistema_de_autenticacao_para_rede_hospitalar.png",
     "link": "",
@@ -15,7 +15,7 @@
   },
   {
     "title": "Dashboard metalúrgico — Tech Lead (Vetta)",
-    "description": "Tech Lead de um time de 8 pessoas em um dashboard complexo do setor metalúrgico. Frontend em React, com participação em Node no backend. Foco em produto, alinhamento técnico e entrega.",
+    "description": "Tech Lead de 8 pessoas em dashboard metalúrgico: React no frontend, Node no backend, com foco em alinhamento técnico e entrega de produto.",
     "technologies": ["React", "Node.js", "TypeScript"],
     "image": "/images/projects/sistema_de_monitoramento_energetico_industrial.png",
     "link": "",
@@ -29,7 +29,7 @@
   },
   {
     "title": "Experimentos de growth e A/B (RD Station)",
-    "description": "Como Growth Software Engineer na RD Station, desenvolvi interfaces em React e conduzi testes A/B junto a Product e Design, fechando o ciclo do experimento até o resultado.",
+    "description": "Growth Software Engineer na RD Station: interfaces React e testes A/B com Product e Design, do experimento ao resultado.",
     "technologies": ["React", "TypeScript", "A/B Testing"],
     "image": "/images/projects/painel_de_business_intelligence.png",
     "link": "",
@@ -43,7 +43,7 @@
   },
   {
     "title": "Produto universitário (Deliver IT)",
-    "description": "Produto para o contexto universitário com microsserviços em PHP e frontend em Vue. Entrega factual de evolução do sistema — sem inflar o escopo.",
+    "description": "Produto universitário com microsserviços PHP e frontend Vue — evolução factual do sistema, sem inflar o escopo.",
     "technologies": ["PHP", "Vue", "Microsserviços"],
     "image": "",
     "link": "",
@@ -57,7 +57,7 @@
   },
   {
     "title": "Projeto fintech em PHP (Deliver IT)",
-    "description": "Participação em projeto fintech desenvolvido em PHP na Deliver IT. Experiência de manutenção e entrega em contexto financeiro, descrita de forma objetiva.",
+    "description": "Participação em projeto fintech em PHP na Deliver IT — manutenção e entrega em contexto financeiro, de forma objetiva.",
     "technologies": ["PHP"],
     "image": "",
     "link": "",
