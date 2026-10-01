@@ -63,7 +63,7 @@ Requisitos: Node `22.14.0` e yarn 1 (`>=1.22.0 <2`).
 
 ## Deploy
 
-O site é servido na raiz de `https://aanschau.tech`. O VPS **não faz build**: o GitHub Actions gera a imagem e publica no GHCR. No servidor, o Caddy encaminha o domínio para o container nginx na porta `8080`.
+O site é servido na raiz de `https://aanschau.tech`. O VPS **não faz build**: o GitHub Actions gera a imagem e publica no GHCR. No servidor, o Caddy encaminha o domínio para o container nginx na porta `8080`. A configuração do site é o arquivo `portfolio.caddy`, instalado em `/opt/caddy/sites/` no VPS. O passo a passo do servidor fica no pacote de deploy do portfólio (`SERVIDOR.md` próprio, fora deste repositório e fora do repositório do Orcadom).
 
 ### Fluxo
 
