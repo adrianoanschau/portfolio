@@ -1,0 +1,22 @@
+# Contexto de build mínimo: só o necessário para `yarn build`.
+.git
+.github
+node_modules
+dist
+dist-ssr
+coverage
+*.log
+.DS_Store
+.vscode
+.idea
+
+# Variáveis locais NÃO entram na imagem (o CI usa build-args).
+.env
+.env.*
+*.local
+
+# Arquivos de infraestrutura/documentação
+Dockerfile
+.dockerignore
+README.md
+LICENSE
