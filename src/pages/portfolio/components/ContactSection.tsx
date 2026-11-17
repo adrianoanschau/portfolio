@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useState, type FormEvent } from 'react';
+import { type FormEvent, useState } from 'react';
 
 import SectionHeading from '@/components/SectionHeading';
 import { CHAT_ID, FORMSPREE_ENDPOINT, TELEGRAM_TOKEN } from '@/global';
@@ -35,7 +35,7 @@ const contactInfo = [
   },
   {
     label: 'Localização',
-    value: 'Porto Alegre, RS · remoto',
+    value: 'Canoas, RS',
   },
 ];
 
@@ -92,7 +92,7 @@ export default function ContactSection() {
         <Box component={motion.div} {...fadeInView}>
           <SectionHeading
             title="Contato"
-            subtitle="Aberto a vagas Pleno/Sênior — Porto Alegre ou remoto"
+            subtitle="Analista de Sistemas · Canoas, RS"
           />
 
           <Box

@@ -35,7 +35,7 @@ export default function Footer() {
           <Box>
             <Typography variant="subtitle2">Adriano Anschau</Typography>
             <Typography variant="caption" color="text.secondary">
-              Desenvolvedor Fullstack · Node.js · React · TypeScript
+              Analista de Sistemas · Requisitos, Suporte e Implantação
             </Typography>
           </Box>
           <SocialButtons />

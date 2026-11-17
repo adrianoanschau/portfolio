@@ -11,6 +11,6 @@ export type Project = {
 export const Project = {
   async list(): Promise<Project[]> {
     const res = await import('@/entities/data/projects.json');
-    return res.default;
+    return res.default as Project[];
   },
 };

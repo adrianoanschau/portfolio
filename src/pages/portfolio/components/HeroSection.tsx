@@ -58,17 +58,18 @@ export default function HeroSection() {
                 mb: 1,
               }}
             >
-              Node.js · React · TypeScript
+              Requisitos · Suporte · Implantação
             </Typography>
             <Typography variant="h1" sx={{ mb: 1 }}>
               Adriano Anschau
             </Typography>
             <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 2 }}>
-              Desenvolvedor Fullstack · Pleno/Sênior
+              Analista de Sistemas
             </Typography>
             <Typography color="text.secondary" sx={{ maxWidth: 560, mb: 3.5 }}>
-              Entrego microsserviços e produto em produção — GraphQL, autenticação e
-              observabilidade em times de engenharia. Porto Alegre ou remoto.
+              Analista de Sistemas e desenvolvedor de software. Análise e levantamento de
+              requisitos, suporte a sistemas e implantação. JavaScript, HTML, PHP e Node.js.
+              Canoas, RS.
             </Typography>
 
             <Stack direction="row" flexWrap="wrap" gap={1.5} sx={{ mb: 2.5 }}>

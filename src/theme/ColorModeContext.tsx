@@ -1,12 +1,12 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import {
   createContext,
+  type FC,
+  type PropsWithChildren,
   useContext,
   useEffect,
   useMemo,
   useState,
-  type FC,
-  type PropsWithChildren,
 } from 'react';
 
 import { createAppTheme } from './createAppTheme';

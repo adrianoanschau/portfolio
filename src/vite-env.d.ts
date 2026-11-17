@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-declare module "*.json" {
-  const value: any;
+declare module '*.json' {
+  const value: unknown;
   export default value;
 }

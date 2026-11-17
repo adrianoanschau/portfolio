@@ -36,7 +36,7 @@ export default function ProjectsSection() {
         <Box component={motion.div} {...fadeInView}>
           <SectionHeading
             title="Projetos"
-            subtitle="Casos reais — Dasa, Vetta, RD Station e Deliver IT"
+            subtitle="Implantação, sustentação e sistemas em produção"
           />
 
           <Box
