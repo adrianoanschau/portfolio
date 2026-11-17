@@ -11,6 +11,6 @@ export type Testimonial = {
 export const Testimonial = {
   async list(): Promise<Testimonial[]> {
     const res = await import('@/entities/data/testimonials.json'); // json com dados, não o schema
-    return res.default;
+    return res.default as Testimonial[];
   },
 };

@@ -32,7 +32,7 @@ export default function ServicesSection() {
         <Box component={motion.div} {...fadeInView}>
           <SectionHeading
             title="O que eu entrego"
-            subtitle="Capacidades para um time de produto — não um catálogo de serviços."
+            subtitle="Análise de requisitos, suporte a sistemas e implantação."
           />
 
           <Box

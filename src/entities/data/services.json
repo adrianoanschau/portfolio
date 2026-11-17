@@ -1,8 +1,8 @@
 [
   {
-    "title": "Entrega fullstack",
-    "description": "Produto de ponta a ponta com Node.js, NestJS, React e TypeScript — da API à interface, em produção.",
-    "icon": "lucide:code",
+    "title": "Análise e requisitos",
+    "description": "Levantamento de requisitos de negócio com clientes, análise de rotinas e processos, documentação e manuais, definição de soluções e de arquitetura. Sistemas ERP e segmentos de indústria (metalúrgica e siderúrgica), saúde e educação.",
+    "icon": "lucide:clipboard-list",
     "featured": true,
     "id": "6844b38390fd15f2fabb2ea6",
     "created_date": "2025-06-07T21:47:47.780000",
@@ -12,9 +12,9 @@
     "is_sample": false
   },
   {
-    "title": "Microsserviços e GraphQL",
-    "description": "Serviços em NestJS, APIs GraphQL e REST, e introdução de GraphQL em times que ainda não usavam a stack.",
-    "icon": "lucide:network",
+    "title": "Suporte a sistemas",
+    "description": "Manutenção corretiva e evolutiva de sistemas em produção e suporte com atendimento de chamados. ERP interno, plataforma de saúde e produto para a indústria metalúrgica.",
+    "icon": "lucide:life-buoy",
     "featured": true,
     "id": "6844b38390fd15f2fabb2ea7",
     "created_date": "2025-06-07T21:47:47.780000",
@@ -24,9 +24,9 @@
     "is_sample": false
   },
   {
-    "title": "Autenticação e segurança",
-    "description": "Auth centralizado com Strategy Pattern, JWT e OAuth — o mesmo tipo de serviço entregue em plataforma de saúde.",
-    "icon": "lucide:shield-check",
+    "title": "Implantação e ambientes",
+    "description": "Deploy em VPS Linux, Docker e Docker Compose, configuração de ambientes (incluindo preview), CI/CD com GitHub Actions, releases SemVer, Caddy, Render e Vercel. Backup e restore.",
+    "icon": "lucide:server",
     "featured": true,
     "id": "6844b38390fd15f2fabb2ea9",
     "created_date": "2025-06-07T21:47:47.780000",
@@ -36,9 +36,9 @@
     "is_sample": false
   },
   {
-    "title": "Dashboards e produto de dados",
-    "description": "Interfaces React para operação e decisão — incluindo dashboard complexo no setor metalúrgico.",
-    "icon": "lucide:bar-chart-3",
+    "title": "Desenvolvimento",
+    "description": "JavaScript, TypeScript, HTML/CSS, PHP, SQL, Node.js (NestJS, Express), React, Next.js, Laravel, Yii, jQuery, WordPress e Angular. APIs RESTful e GraphQL, microsserviços, scripts Python e Ruby. Conhecimento básico de C#. PostgreSQL, MySQL, Supabase, Firebase, Prisma, TypeORM e modelagem de dados. Scrum, Kanban, Git/GitHub, n8n e desenvolvimento assistido por IA.",
+    "icon": "lucide:code",
     "featured": false,
     "id": "6844b38390fd15f2fabb2ea8",
     "created_date": "2025-06-07T21:47:47.780000",
@@ -48,9 +48,9 @@
     "is_sample": false
   },
   {
-    "title": "Experimentos de growth",
-    "description": "UI em React para testes A/B com Product e Design, do experimento ao resultado mensurável.",
-    "icon": "lucide:flask-conical",
+    "title": "Monitoramento, testes e segurança",
+    "description": "Prometheus, Grafana e GlitchTip/Sentry. Logging e rastreabilidade. Testes automatizados e e2e, testes A/B. Code review, Clean Code, SOLID e Design Patterns. Correção de vulnerabilidades de acesso, JWT e OAuth.",
+    "icon": "lucide:activity",
     "featured": false,
     "id": "6844b38390fd15f2fabb2eaa",
     "created_date": "2025-06-07T21:47:47.780000",
@@ -60,8 +60,8 @@
     "is_sample": false
   },
   {
-    "title": "Liderança técnica",
-    "description": "Tech Lead de time de 8 pessoas: alinhamento técnico, qualidade de código e entrega de produto.",
+    "title": "Coordenação e treinamento",
+    "description": "Comunicação, treinamento e integração com equipes técnicas, Product, Design, docentes e alunos (capacitação com PBL). Coordenação dos cursos de TI no Senac RS e liderança técnica de time de 8 pessoas na Vetta.",
     "icon": "lucide:users",
     "featured": false,
     "id": "6844b38390fd15f2fabb2eab",

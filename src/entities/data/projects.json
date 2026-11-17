@@ -1,7 +1,49 @@
 [
   {
+    "title": "Orcadom — implantação e sustentação",
+    "description": "Orçamento doméstico em produção. Implantação e sustentação: VPS Linux, Docker, preview por PR, CI/CD (GitHub Actions, build, testes e e2e), releases SemVer, Prometheus, Grafana, GlitchTip e backup com teste de restauração.",
+    "technologies": ["Next.js", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"],
+    "image": "",
+    "link": "https://orcadom.aanschau.tech",
+    "status": "completed",
+    "id": "6",
+    "created_date": "2025-06-08T00:00:00.000Z",
+    "updated_date": "2025-06-08T00:00:00.000Z",
+    "created_by_id": "683f4c8b1117b315dcda00ff",
+    "created_by": "adrianoanschau@gmail.com",
+    "is_sample": false
+  },
+  {
+    "title": "ERP Lite Desktop — deploy",
+    "description": "ERP desktop desenvolvido integralmente (Electron, React, Node.js, Supabase), com deploy e sustentação das APIs no Render.",
+    "technologies": ["Electron", "React", "Node.js", "Supabase", "Render"],
+    "image": "",
+    "link": "",
+    "status": "completed",
+    "id": "7",
+    "created_date": "2025-06-08T00:00:00.000Z",
+    "updated_date": "2025-06-08T00:00:00.000Z",
+    "created_by_id": "683f4c8b1117b315dcda00ff",
+    "created_by": "adrianoanschau@gmail.com",
+    "is_sample": false
+  },
+  {
+    "title": "Gestão de estoque — Grazziotin",
+    "description": "Sistema de microsserviços em PHP e Node.js para o cliente Grazziotin, com atuação direta em gestão de estoque.",
+    "technologies": ["PHP", "Node.js", "Microsserviços"],
+    "image": "",
+    "link": "",
+    "status": "completed",
+    "id": "8",
+    "created_date": "2025-06-08T00:00:00.000Z",
+    "updated_date": "2025-06-08T00:00:00.000Z",
+    "created_by_id": "683f4c8b1117b315dcda00ff",
+    "created_by": "adrianoanschau@gmail.com",
+    "is_sample": false
+  },
+  {
     "title": "Auth e observabilidade — saúde e diagnóstico (Dasa)",
-    "description": "Microsserviços Node.js/NestJS/GraphQL em plataforma de saúde (Dasa via FCamara): GraphQL no time, logging que reduziu análise de incidentes de dias para horas, e auth JWT/OAuth com Strategy Pattern.",
+    "description": "Manutenção corretiva e evolutiva na plataforma de diagnósticos em saúde (Dasa via FCamara): logging que reduziu incidentes de API de dias para horas, vulnerabilidades de acesso e autenticação JWT/OAuth.",
     "technologies": ["NestJS", "Node.js", "GraphQL", "TypeScript", "JWT", "OAuth", "Strategy Pattern"],
     "image": "/images/projects/sistema_de_autenticacao_para_rede_hospitalar.png",
     "link": "",
@@ -14,8 +56,8 @@
     "is_sample": false
   },
   {
-    "title": "Dashboard metalúrgico — Tech Lead (Vetta)",
-    "description": "Tech Lead de 8 pessoas em dashboard metalúrgico: React no frontend, Node no backend, com foco em alinhamento técnico e entrega de produto.",
+    "title": "Dashboard industrial — Software Developer / Tech Lead (Vetta)",
+    "description": "Liderança técnica de 8 pessoas em dashboard para a indústria metalúrgica e siderúrgica (Node.js, React), com prioridades e padrões alinhados aos requisitos de negócio do setor.",
     "technologies": ["React", "Node.js", "TypeScript"],
     "image": "/images/projects/sistema_de_monitoramento_energetico_industrial.png",
     "link": "",
@@ -29,7 +71,7 @@
   },
   {
     "title": "Experimentos de growth e A/B (RD Station)",
-    "description": "Growth Software Engineer na RD Station: interfaces React e testes A/B com Product e Design, do experimento ao resultado.",
+    "description": "Growth Software Engineer na RD Station: testes A/B, análise de dados e interfaces React com Product e Design, do experimento ao resultado.",
     "technologies": ["React", "TypeScript", "A/B Testing"],
     "image": "/images/projects/painel_de_business_intelligence.png",
     "link": "",

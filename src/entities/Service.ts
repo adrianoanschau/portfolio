@@ -9,6 +9,6 @@ export type Service = {
 export const Service = {
   async list(): Promise<Service[]> {
     const res = await import('@/entities/data/services.json'); // json com dados, não o schema
-    return res.default;
+    return res.default as Service[];
   },
 };
